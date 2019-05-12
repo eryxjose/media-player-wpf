@@ -1,0 +1,84 @@
+﻿<Window x:Class="MediaPlayerWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MediaPlayerWpf"
+        mc:Ignorable="d"
+        Title="Media Player Wpf" Height="450" Width="800">
+
+    <Grid>
+
+        <MediaElement
+            Name="MediaElementPlayer" 
+            LoadedBehavior="Manual" 
+            MediaOpened="Media_MediaOpened" 
+            MediaEnded="Media_MediaEnded"
+            Source=""
+            MediaFailed="Media_MediaFailed"/>
+
+        <Button 
+            x:Name="btnStart" 
+            Click="BtnStart_Click"
+            Visibility="Hidden" 
+            FontFamily="Segoe MDL2 Assets" 
+            FontSize="26"
+            Width="36"
+            Height="36"
+            Margin="10,0,0,9"
+            Content="&#xE102;" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+        />
+
+        <Button 
+            x:Name="btnPause" 
+            Click="BtnPause_Click"
+            Visibility="Hidden"
+            FontFamily="Segoe MDL2 Assets" 
+            FontSize="26"
+            Width="36"
+            Height="36"
+            Margin="10,0,0,9"
+            Content="&#xE769;" 
+            HorizontalAlignment="Left" VerticalAlignment="Bottom"
+        />
+
+
+        <Slider 
+            Name="VolumeSlider"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Bottom" 
+            Margin="687,0,0,17" 
+            Width="87" 
+            ValueChanged="VolumeSlider_ValueChanged"
+            Value="0.5" 
+            Minimum="0"
+            Maximum="1"
+            Visibility="Hidden"
+            />
+
+        <Slider 
+            Name="PosicaoSlider"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Bottom" 
+            Margin="67,0,0,17" 
+            Width="607" 
+            ValueChanged="PosicaoSlider_ValueChanged"
+            Value="0"
+            Visibility="Hidden"
+            />
+
+        <Label Content="Nenhum arquivo carregado." Margin="0,20,301,0" Name="trackLabel" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Width="481" />
+
+        <Menu Height="20" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open File.." Click="OpenFile_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Exit" Click="CloseApp_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+
+        <ListBox Name="playlistContainer" Visibility="Hidden"></ListBox>
+
+    </Grid>
+</Window>
