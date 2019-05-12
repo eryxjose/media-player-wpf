@@ -26,7 +26,6 @@ namespace MediaPlayerWpf
     {
         DispatcherTimer timer = new DispatcherTimer();
 
-        bool posSliderDragging = false;
         bool isPlaying = false;
         String trackPath = String.Empty; 
 
